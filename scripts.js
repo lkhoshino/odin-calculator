@@ -3,32 +3,38 @@ function operate(){
     let isSubtraction = currentValue.includes("-");
     let isMultiplication = currentValue.includes("*");
     let isDivision = currentValue.includes("/");
+    let rounded;
+
     if(isAddition){
         let split = currentValue.split("+", 2);
         let a = parseInt(split[0]);
         let b = parseInt(split[1]);
-        display.innerHTML = a+b;
+        rounded = a + b;
+        display.innerHTML = rounded.toFixed(2);
         currentValue = display.innerHTML;
     }
     if(isSubtraction){
         let split = currentValue.split("-", 2);
         let a = parseInt(split[0]);
         let b = parseInt(split[1]);
-        display.innerHTML = a-b;
+        rounded = a - b;
+        display.innerHTML = rounded.toFixed(2);
         currentValue = display.innerHTML;
     }
     if(isMultiplication){
         let split = currentValue.split("*", 2);
         let a = parseInt(split[0]);
         let b = parseInt(split[1]);
-        display.innerHTML = a*b;
+        rounded = a * b;
+        display.innerHTML = rounded.toFixed(2);
         currentValue = display.innerHTML;
     }
     if(isDivision){
         let split = currentValue.split("/", 2);
         let a = parseInt(split[0]);
         let b = parseInt(split[1]);
-        display.innerHTML = a/b;
+        rounded = a / b;
+        display.innerHTML = rounded.toFixed(2);
         currentValue = display.innerHTML;
     }
     
