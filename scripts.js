@@ -7,32 +7,32 @@ function operate(){
 
     if(isAddition){
         let split = currentValue.split("+", 2);
-        let a = parseInt(split[0]);
-        let b = parseInt(split[1]);
+        let a = parseFloat(split[0]);
+        let b = parseFloat(split[1]);
         rounded = a + b;
         display.innerHTML = rounded.toFixed(2);
         currentValue = display.innerHTML;
     }
     if(isSubtraction){
         let split = currentValue.split("-", 2);
-        let a = parseInt(split[0]);
-        let b = parseInt(split[1]);
+        let a = parseFloat(split[0]);
+        let b = parseFloat(split[1]);
         rounded = a - b;
         display.innerHTML = rounded.toFixed(2);
         currentValue = display.innerHTML;
     }
     if(isMultiplication){
         let split = currentValue.split("*", 2);
-        let a = parseInt(split[0]);
-        let b = parseInt(split[1]);
+        let a = parseFloat(split[0]);
+        let b = parseFloat(split[1]);
         rounded = a * b;
         display.innerHTML = rounded.toFixed(2);
         currentValue = display.innerHTML;
     }
     if(isDivision){
         let split = currentValue.split("/", 2);
-        let a = parseInt(split[0]);
-        let b = parseInt(split[1]);
+        let a = parseFloat(split[0]);
+        let b = parseFloat(split[1]);
         rounded = a / b;
         display.innerHTML = rounded.toFixed(2);
         currentValue = display.innerHTML;
@@ -66,6 +66,8 @@ const button9 = document.querySelector(".button9");
 button9.addEventListener("click", button9Pressed);
 const button0 = document.querySelector(".button0");
 button0.addEventListener("click", button0Pressed);
+const buttonDot = document.querySelector(".dot");
+buttonDot.addEventListener("click", buttonDotPressed);
 
 const buttonAdd = document.querySelector(".add");
 buttonAdd.addEventListener("click", buttonAddPressed);
@@ -122,29 +124,40 @@ function button0Pressed(){
     display.innerHTML = currentValue.concat("0");
     currentValue = display.innerHTML;
 }
+function buttonDotPressed(){
+    display.innerHTML = currentValue.concat(".");
+    currentValue = display.innerHTML;
+    buttonDot.disabled = true;
+}
 
 
 function buttonAddPressed(){
     display.innerHTML = currentValue.concat("+");
     currentValue = display.innerHTML;
+    buttonDot.disabled = false;
 }
 function buttonSubPressed(){
     display.innerHTML = currentValue.concat("-");
     currentValue = display.innerHTML;
+    buttonDot.disabled = false;
 }
 function buttonMultiPressed(){
     display.innerHTML = currentValue.concat("*");
     currentValue = display.innerHTML;
+    buttonDot.disabled = false;
 }
 function buttonDivisPressed(){
     display.innerHTML = currentValue.concat("/");
     currentValue = display.innerHTML;
+    buttonDot.disabled = false;
 }
 function buttonClearPressed(){
     display.innerHTML = ("");
     currentValue = display.innerHTML;
+    buttonDot.disabled = false;
 }
 function buttonEqualsPressed(){
+    buttonDot.disabled = false;
     operate();
 }
 
