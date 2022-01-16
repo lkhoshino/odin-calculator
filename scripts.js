@@ -1,6 +1,44 @@
 function operate(){
+    let isAddition = currentValue.includes("+");
+    let isSubtraction = currentValue.includes("-");
+    let isMultiplication = currentValue.includes("*");
+    let isDivision = currentValue.includes("/");
+    if(isAddition){
+        let split = currentValue.split("+", 2);
+        let a = parseInt(split[0]);
+        let b = parseInt(split[1]);
+        display.innerHTML = a+b;
+        currentValue = display.innerHTML;
+    }
+    if(isSubtraction){
+        let split = currentValue.split("-", 2);
+        let a = parseInt(split[0]);
+        let b = parseInt(split[1]);
+        display.innerHTML = a-b;
+        currentValue = display.innerHTML;
+    }
+    if(isMultiplication){
+        let split = currentValue.split("*", 2);
+        let a = parseInt(split[0]);
+        let b = parseInt(split[1]);
+        display.innerHTML = a*b;
+        currentValue = display.innerHTML;
+    }
+    if(isDivision){
+        let split = currentValue.split("/", 2);
+        let a = parseInt(split[0]);
+        let b = parseInt(split[1]);
+        display.innerHTML = a/b;
+        currentValue = display.innerHTML;
+    }
+    
 
 }
+
+
+const display = document.querySelector(".display");
+
+let currentValue ="";
 
 const button1 = document.querySelector(".button1");
 button1.addEventListener("click", button1Pressed);
@@ -31,11 +69,12 @@ const buttonMulti = document.querySelector(".multi");
 buttonMulti.addEventListener("click", buttonMultiPressed);
 const buttonDivis = document.querySelector(".divis");
 buttonDivis.addEventListener("click", buttonDivisPressed);
+const buttonEquals = document.querySelector(".equals");
+buttonEquals.addEventListener("click", buttonEqualsPressed );
+const buttonClear = document.querySelector(".clear");
+buttonClear.addEventListener("click", buttonClearPressed);
 
 
-const display = document.querySelector(".display");
-
-let currentValue ="";
 
 function button1Pressed(){
     display.innerHTML = currentValue.concat("1");
@@ -87,12 +126,19 @@ function buttonSubPressed(){
     display.innerHTML = currentValue.concat("-");
     currentValue = display.innerHTML;
 }
-function buttonmultiPressed(){
+function buttonMultiPressed(){
     display.innerHTML = currentValue.concat("*");
     currentValue = display.innerHTML;
 }
-function buttondivisPressed(){
+function buttonDivisPressed(){
     display.innerHTML = currentValue.concat("/");
     currentValue = display.innerHTML;
+}
+function buttonClearPressed(){
+    display.innerHTML = ("");
+    currentValue = display.innerHTML;
+}
+function buttonEqualsPressed(){
+    operate();
 }
 
