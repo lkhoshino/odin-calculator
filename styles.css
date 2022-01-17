@@ -1,0 +1,47 @@
+.main{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.display{
+    display: flex;
+}
+
+.numberButtons button{
+    background-color: #72e4f8;
+    display: flex;
+    font-size: 15px;
+    padding: 15px ;
+    border-radius: 4px;
+    width: 90px;
+}
+.operators button{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffd3f2;
+    font-size: 15px;
+    padding: 15px 30px;
+    border-radius: 4px;
+    width: 80px;
+}
+
+.keyboard{
+    display: flex;
+}
+.topRow{
+    display: flex;
+}
+
+.middleRow{
+    display: flex;
+}
+
+.bottomRow{
+    display: flex;
+}
+
+.bottomestRow{
+    display: flex;
+}
